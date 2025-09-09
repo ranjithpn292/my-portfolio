@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
-import { FaArrowDown } from "react-icons/fa";
+import StyledArrow from "./ArrowIcon";
 
 const bounce = keyframes`
   0%, 20%, 50%, 80%, 100% {
@@ -22,12 +22,6 @@ const ArrowWrapper = styled.div<{ visible: boolean }>`
   opacity: ${(props) => (props.visible ? 1 : 0)};
   transition: opacity 0.5s ease;
   cursor: pointer;
-`;
-
-const StyledArrow = styled(FaArrowDown)`
-  font-size: 2rem;
-  color: white;
-  animation: ${bounce} 2s infinite;
 `;
 
 const DragDownArrow: React.FC = () => {
