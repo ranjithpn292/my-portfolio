@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import profile from "../assets/profile.jpg"; // Optional profile image
 import DragDownArrow from "./DragDownArrow";
 
 const Container = styled.div`
@@ -23,15 +22,6 @@ const HeroSection = styled.section`
   color: white;
   text-align: center;
   padding: 2rem;
-`;
-
-const SkillsSection = styled.section`
-  flex: 1;
-  background: #fff;
-  padding: 4rem 2rem;
-  text-align: center;
-  color: #333;
-  overflow-y: auto;
 `;
 
 const HeroTitle = styled.h1`
@@ -66,7 +56,7 @@ const HeroButton = styled.a`
 const HeroAndSkills: React.FC = () => (
   <Container>
     <HeroSection>
-      <HeroTitle>Hi, I'm Ranjith P N</HeroTitle>
+      <HeroTitle>Hi, I am Ranjith P N</HeroTitle>
       <HeroSubtitle>
         Full Stack Developer | React | TypeScript | Spring Boot
       </HeroSubtitle>

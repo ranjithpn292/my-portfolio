@@ -2,18 +2,6 @@ import React, { useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 import StyledArrow from "./ArrowIcon";
 
-const bounce = keyframes`
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0); 
-  }
-  40% {
-    transform: translateY(10px); 
-  }
-  60% {
-    transform: translateY(5px);
-  }
-`;
-
 const ArrowWrapper = styled.div<{ visible: boolean }>`
   position: absolute;
   bottom: 2rem;
