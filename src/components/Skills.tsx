@@ -1,242 +1,145 @@
 import React from "react";
 import styled from "styled-components";
+import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
+import { motion } from "framer-motion";
 
 const SkillsSection = styled.section`
-  padding: 4rem 2rem;
-  background: #fff;
+  padding: 5rem 2rem;
+  background: #f9f9fb;
   text-align: center;
 `;
 
 const SkillsTitle = styled.h2`
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
+  color: #222;
+  font-weight: 700;
+  letter-spacing: 1px;
 `;
 
-const SkillList = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
+const SkillsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  justify-items: center;
 `;
 
-const SkillItem = styled.div`
-  background: #873737ff;
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 0.5rem;
-  font-weight: bold;
+const SkillCard = styled(motion.div)`
+  background: ${({ theme }) => theme.colors.white};
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 240px;
+  height: 280px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: translateY(-8px);
+  }
 `;
 
-const skills = [
-  "React",
-  "TypeScript",
-  "Redux",
-  "Spring Boot",
-  "PostgreSQL",
-  "Docker",
-  "Kafka",
-  "Microservices",
-];
-
-const SkillCategory = styled.div`
-  margin-bottom: 2rem;
+const SkillName = styled.h3`
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  color: ${({ theme }) => theme.colors.primary};
 `;
 
 const CategoryTitle = styled.h3`
-  font-size: 1.75rem;
-  margin-bottom: 1rem;
-  color: #873737ff;
+  font-size: 1.8rem;
+  margin: 3rem 0 1.5rem;
+  color: ${({ theme }) => theme.colors.primary};
+  text-align: left;
 `;
 
-const SkillLabel = styled.div`
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+const CategoryWrapper = styled.div`
+  margin: 2rem 0;
 `;
 
-const SkillBarBackground = styled.div`
-  width: 100%;
-  background: #0c0c0cff;
-  border-radius: 0.5rem;
-  height: 10px;
-`;
-
-const SkillBar = styled.div<{ width: string }>`
-  width: ${(props) => props.width};
-  background: #aea5a6ff;
-  height: 10px;
-  border-radius: 0.5rem;
-  transition: width 1s ease-in-out;
-`;
+const skillsData = [
+  {
+    category: "Frontend",
+    items: [
+      { name: "React", value: 90 },
+      { name: "Redux", value: 85 },
+      { name: "TypeScript", value: 80 },
+      { name: "Webpack", value: 75 },
+    ],
+  },
+  {
+    category: "Backend",
+    items: [
+      { name: "Spring Boot", value: 85 },
+      { name: "Node.js", value: 80 },
+      { name: "Express.js", value: 80 },
+    ],
+  },
+  {
+    category: "Database",
+    items: [
+      { name: "MariaDB", value: 85 },
+      { name: "MySQL", value: 80 },
+    ],
+  },
+  {
+    category: "Cloud & DevOps",
+    items: [
+      { name: "Docker", value: 85 },
+      { name: "PCF", value: 75 },
+      { name: "Kubernetes", value: 70 },
+    ],
+  },
+  {
+    category: "Tools",
+    items: [
+      { name: "Git", value: 90 },
+      { name: "VS Code", value: 95 },
+      { name: "IntelliJ", value: 85 },
+    ],
+  },
+];
 
 const Skills: React.FC = () => (
   <SkillsSection id="skills">
-    <SkillsTitle>Skills</SkillsTitle>
-    <SkillList>
-      {skills.map((skill) => (
-        <SkillItem key={skill}>{skill}</SkillItem>
-      ))}
-    </SkillList>
-    <SkillsSection id="skills">
-      <SkillsTitle>My Skills</SkillsTitle>
+    <SkillsTitle>My Skills</SkillsTitle>
 
-      <SkillCategory>
-        <CategoryTitle>Languages</CategoryTitle>
-        <SkillItem>
-          <SkillLabel>Java</SkillLabel>
-          <SkillBarBackground>
-            <SkillBar width="85%" />
-          </SkillBarBackground>
-        </SkillItem>
-        <SkillItem>
-          <SkillLabel>JavaScript</SkillLabel>
-          <SkillBarBackground>
-            <SkillBar width="90%" />
-          </SkillBarBackground>
-        </SkillItem>
-      </SkillCategory>
-
-      <SkillCategory>
-        <CategoryTitle>Frontend</CategoryTitle>
-        <SkillItem>
-          <SkillLabel>React JS</SkillLabel>
-          <SkillBarBackground>
-            <SkillBar width="90%" />
-          </SkillBarBackground>
-        </SkillItem>
-        <SkillItem>
-          <SkillLabel>Redux</SkillLabel>
-          <SkillBarBackground>
-            <SkillBar width="85%" />
-          </SkillBarBackground>
-        </SkillItem>
-        <SkillItem>
-          <SkillLabel>Webpack</SkillLabel>
-          <SkillBarBackground>
-            <SkillBar width="75%" />
-          </SkillBarBackground>
-        </SkillItem>
-        <SkillItem>
-          <SkillLabel>Module Federation</SkillLabel>
-          <SkillBarBackground>
-            <SkillBar width="70%" />
-          </SkillBarBackground>
-        </SkillItem>
-      </SkillCategory>
-
-      <SkillCategory>
-        <CategoryTitle>Backend</CategoryTitle>
-        <SkillItem>
-          <SkillLabel>Spring Boot</SkillLabel>
-          <SkillBarBackground>
-            <SkillBar width="85%" />
-          </SkillBarBackground>
-        </SkillItem>
-        <SkillItem>
-          <SkillLabel>Express.js</SkillLabel>
-          <SkillBarBackground>
-            <SkillBar width="80%" />
-          </SkillBarBackground>
-        </SkillItem>
-        <SkillItem>
-          <SkillLabel>Node.js</SkillLabel>
-          <SkillBarBackground>
-            <SkillBar width="80%" />
-          </SkillBarBackground>
-        </SkillItem>
-      </SkillCategory>
-
-      <SkillCategory>
-        <CategoryTitle>Databases</CategoryTitle>
-        <SkillItem>
-          <SkillLabel>MySQL</SkillLabel>
-          <SkillBarBackground>
-            <SkillBar width="85%" />
-          </SkillBarBackground>
-        </SkillItem>
-        <SkillItem>
-          <SkillLabel>MariaDB</SkillLabel>
-          <SkillBarBackground>
-            <SkillBar width="80%" />
-          </SkillBarBackground>
-        </SkillItem>
-      </SkillCategory>
-
-      <SkillCategory>
-        <CategoryTitle>CS Fundamentals</CategoryTitle>
-        <SkillItem>
-          <SkillLabel>Data Structures & Algorithms</SkillLabel>
-          <SkillBarBackground>
-            <SkillBar width="80%" />
-          </SkillBarBackground>
-        </SkillItem>
-      </SkillCategory>
-
-      <SkillCategory>
-        <CategoryTitle>Tools</CategoryTitle>
-        <SkillItem>
-          <SkillLabel>Git</SkillLabel>
-          <SkillBarBackground>
-            <SkillBar width="90%" />
-          </SkillBarBackground>
-        </SkillItem>
-        <SkillItem>
-          <SkillLabel>JIRA</SkillLabel>
-          <SkillBarBackground>
-            <SkillBar width="85%" />
-          </SkillBarBackground>
-        </SkillItem>
-        <SkillItem>
-          <SkillLabel>IntelliJ</SkillLabel>
-          <SkillBarBackground>
-            <SkillBar width="80%" />
-          </SkillBarBackground>
-        </SkillItem>
-        <SkillItem>
-          <SkillLabel>VS Code</SkillLabel>
-          <SkillBarBackground>
-            <SkillBar width="95%" />
-          </SkillBarBackground>
-        </SkillItem>
-      </SkillCategory>
-
-      <SkillCategory>
-        <CategoryTitle>Cloud & DevOps</CategoryTitle>
-        <SkillItem>
-          <SkillLabel>PCF</SkillLabel>
-          <SkillBarBackground>
-            <SkillBar width="75%" />
-          </SkillBarBackground>
-        </SkillItem>
-        <SkillItem>
-          <SkillLabel>Docker</SkillLabel>
-          <SkillBarBackground>
-            <SkillBar width="85%" />
-          </SkillBarBackground>
-        </SkillItem>
-        <SkillItem>
-          <SkillLabel>JMeter</SkillLabel>
-          <SkillBarBackground>
-            <SkillBar width="70%" />
-          </SkillBarBackground>
-        </SkillItem>
-      </SkillCategory>
-
-      <SkillCategory>
-        <CategoryTitle>Methodologies</CategoryTitle>
-        <SkillItem>
-          <SkillLabel>Agile (Scrum)</SkillLabel>
-          <SkillBarBackground>
-            <SkillBar width="85%" />
-          </SkillBarBackground>
-        </SkillItem>
-        <SkillItem>
-          <SkillLabel>REST APIs</SkillLabel>
-          <SkillBarBackground>
-            <SkillBar width="90%" />
-          </SkillBarBackground>
-        </SkillItem>
-      </SkillCategory>
-    </SkillsSection>
+    {skillsData.map((cat, i) => (
+      <CategoryWrapper key={i}>
+        <CategoryTitle>{cat.category}</CategoryTitle>
+        <SkillsGrid>
+          {cat.items.map((skill, idx) => (
+            <SkillCard
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <ResponsiveContainer width="100%" height={140}>
+                <PieChart>
+                  <Pie
+                    data={[
+                      { name: "Proficiency", value: skill.value },
+                      { name: "Remaining", value: 100 - skill.value },
+                    ]}
+                    dataKey="value"
+                    startAngle={90}
+                    endAngle={-270}
+                    innerRadius={40}
+                    outerRadius={60}
+                    paddingAngle={2}
+                  >
+                    <Cell key="filled" fill="#873737" />
+                    <Cell key="remaining" fill="#e4e4e4" />
+                  </Pie>
+                </PieChart>
+              </ResponsiveContainer>
+              <SkillName>{skill.name}</SkillName>
+              <p style={{ fontWeight: 600, color: "#555" }}>{skill.value}%</p>
+            </SkillCard>
+          ))}
+        </SkillsGrid>
+      </CategoryWrapper>
+    ))}
   </SkillsSection>
 );
 

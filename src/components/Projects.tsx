@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const ProjectsSection = styled.section`
   padding: 4rem 2rem;
-  background: #f0f4f8;
+  background:${({ theme }) => theme.colors.white};
   text-align: center;
 `;
 
@@ -36,7 +36,7 @@ const ProjectDescription = styled.p`
 `;
 
 const ProjectLink = styled.a`
-  color: #873737ff;
+  color: ${({ theme }) => theme.colors.primary};
   font-weight: bold;
 
   &:hover {
@@ -56,7 +56,7 @@ const projects = [
     title: "Bike Renting App",
     description: "Platform for renting bikes using microservices architecture.",
     tech: "React, Spring Boot, Docker",
-    link: "https://github.com/ranjithpn292/ride-sharing-app",
+    link: "https://github.com/ranjithpn292/bike-renting-platform",
   },
 ];
 

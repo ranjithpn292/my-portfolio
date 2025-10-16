@@ -4,7 +4,7 @@ import styled from "styled-components";
 const FooterSection = styled.footer`
   padding: 2rem;
   text-align: center;
-  background: #873737ff;
+  background: ${({ theme }) => theme.colors.primary};
   color: white;
 `;
 

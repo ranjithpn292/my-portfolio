@@ -1,4 +1,21 @@
-import { createGlobalStyle } from 'styled-components';
+// src/styles/GlobalStyles.ts
+import { createGlobalStyle } from "styled-components";
+import "styled-components";
+
+declare module "styled-components" {
+  export interface DefaultTheme {
+    fonts: {
+      body: string;
+      heading: string;
+    };
+    colors: {
+      primary: string;
+      light: string;
+      white: string;
+      textPrimary: string;
+    };
+  }
+}
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -8,18 +25,14 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
+    font-family: ${({ theme }) => theme.fonts.body};
+    background-color: ${({ theme }) => theme.colors.light};
+    color: ${({ theme }) => theme.colors.textPrimary};
+    line-height: 1.6;
   }
 
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  button {
-    cursor: pointer;
+  h1, h2, h3, h4, h5 {
+    font-family: ${({ theme }) => theme.fonts.heading};
   }
 `;
 
