@@ -1,83 +1,235 @@
 import React from "react";
 import styled from "styled-components";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
-const ProjectsSection = styled.section`
-  padding: 4rem 2rem;
-  background:${({ theme }) => theme.colors.white};
+const Section = styled.section`
+  padding: 100px 8%;
+  background: ${({ theme }) => theme.colors.background};
+`;
+
+const Title = styled.h2`
   text-align: center;
+  font-size: 42px;
+  margin-bottom: 70px;
 `;
 
-const ProjectsTitle = styled.h2`
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-`;
-
-const ProjectsGrid = styled.div`
+const Grid = styled.div`
   display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
 `;
 
-const ProjectCard = styled.div`
-  background: white;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+const Card = styled.div`
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 40px;
+
+  background: ${({ theme }) => theme.colors.card};
+
+  border: 1px solid ${({ theme }) => theme.colors.border};
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  transition: 0.35s;
+
+  &:hover {
+    transform: translateY(-8px);
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const Image = styled.div`
+  background: linear-gradient(135deg, #7c3aed, #38bdf8);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  font-size: 32px;
+
+  font-weight: bold;
+
+  color: white;
+
+  min-height: 250px;
+`;
+
+const Content = styled.div`
+  padding: 35px;
 `;
 
 const ProjectTitle = styled.h3`
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: 30px;
 `;
 
-const ProjectDescription = styled.p`
-  font-size: 1rem;
-  margin-bottom: 1rem;
+const Description = styled.p`
+  margin: 20px 0;
+
+  line-height: 1.8;
+
+  color: ${({ theme }) => theme.colors.textSecondary};
 `;
 
-const ProjectLink = styled.a`
-  color: ${({ theme }) => theme.colors.primary};
-  font-weight: bold;
+const BadgeContainer = styled.div`
+  display: flex;
 
-  &:hover {
-    text-decoration: underline;
-  }
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin-bottom: 25px;
+`;
+
+const Badge = styled.span`
+  padding: 8px 16px;
+
+  border-radius: 999px;
+
+  background: rgba(124, 58, 237, 0.15);
+
+  border: 1px solid ${({ theme }) => theme.colors.primary};
+`;
+
+const Features = styled.ul`
+  margin-bottom: 25px;
+
+  padding-left: 20px;
+
+  line-height: 2;
+`;
+
+const Buttons = styled.div`
+  display: flex;
+
+  gap: 20px;
+`;
+
+const Button = styled.a`
+  padding: 12px 24px;
+
+  background: ${({ theme }) => theme.colors.primary};
+
+  color: white;
+
+  border-radius: 10px;
+
+  text-decoration: none;
+
+  font-weight: 600;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
 `;
 
 const projects = [
   {
-    title: "AI-Powered Resume Builder",
+    title: "Agrigo",
+
+    image: "AGRIGO",
+
     description:
-      "Generates resumes dynamically using React frontend and Spring Boot backend.",
-    tech: "React, TypeScript, Spring Boot, PostgreSQL",
-    link: "https://github.com/ranjithpn292/resume_builder",
+      "A full-stack agriculture marketplace connecting farmers and buyers with scalable microservices architecture.",
+
+    tech: ["React", "Spring Boot", "Java", "Docker", "MariaDB"],
+
+    features: [
+      "JWT Authentication",
+
+      "REST APIs",
+
+      "Microservices",
+
+      "Responsive UI",
+    ],
+
+    github: "https://github.com/ranjithpn292/agrigo-mfe",
+
+    demo: "#",
   },
+
   {
-    title: "Bike Renting App",
-    description: "Platform for renting bikes using microservices architecture.",
-    tech: "React, Spring Boot, Docker",
-    link: "https://github.com/ranjithpn292/bike-renting-platform",
+    title: "AI Code Review Agent",
+
+    image: "AI",
+
+    description:
+      "AI-powered backend application that detects code smells and suggests fixes for Java microservices.",
+
+    tech: ["Java", "Spring Boot", "OpenAI", "Docker"],
+
+    features: [
+      "Static Analysis",
+
+      "AI Suggestions",
+
+      "REST API",
+
+      "Sonar Integration",
+    ],
+
+    github: "https://github.com/ranjithpn292/resume_builder",
+
+    demo: "#",
   },
 ];
 
-const Projects: React.FC = () => (
-  <ProjectsSection id="projects">
-    <ProjectsTitle>Projects</ProjectsTitle>
-    <ProjectsGrid>
-      {projects.map((proj) => (
-        <ProjectCard key={proj.title}>
-          <ProjectTitle>{proj.title}</ProjectTitle>
-          <ProjectDescription>{proj.description}</ProjectDescription>
-          <p>
-            <em>{proj.tech}</em>
-          </p>
-          <ProjectLink href={proj.link} target="_blank">
-            View on GitHub
-          </ProjectLink>
-        </ProjectCard>
-      ))}
-    </ProjectsGrid>
-  </ProjectsSection>
-);
+const Projects = () => {
+  return (
+    <Section id="projects">
+      <Title>Featured Projects</Title>
+
+      <Grid>
+        {projects.map((project) => (
+          <Card key={project.title}>
+            <Image>{project.image}</Image>
+
+            <Content>
+              <ProjectTitle>{project.title}</ProjectTitle>
+
+              <Description>{project.description}</Description>
+
+              <BadgeContainer>
+                {project.tech.map((tech) => (
+                  <Badge key={tech}>{tech}</Badge>
+                ))}
+              </BadgeContainer>
+
+              <Features>
+                {project.features.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </Features>
+
+              <Buttons>
+                <Button href={project.github} target="_blank">
+                  <FaGithub />
+                  GitHub
+                </Button>
+
+                <Button
+                  href={project.demo}
+                  target="_blank"
+                  aria-disabled={true}
+                >
+                  <FaExternalLinkAlt />
+                  Live Demo
+                </Button>
+              </Buttons>
+            </Content>
+          </Card>
+        ))}
+      </Grid>
+    </Section>
+  );
+};
 
 export default Projects;

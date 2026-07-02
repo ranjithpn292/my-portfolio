@@ -1,39 +1,67 @@
-// src/styles/GlobalStyles.ts
 import { createGlobalStyle } from "styled-components";
-import "styled-components";
-
-declare module "styled-components" {
-  export interface DefaultTheme {
-    fonts: {
-      body: string;
-      heading: string;
-    };
-    colors: {
-      primary: string;
-      light: string;
-      white: string;
-      textPrimary: string;
-    };
-  }
-}
 
 const GlobalStyles = createGlobalStyle`
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
 
-  body {
-    font-family: ${({ theme }) => theme.fonts.body};
-    background-color: ${({ theme }) => theme.colors.light};
-    color: ${({ theme }) => theme.colors.textPrimary};
-    line-height: 1.6;
-  }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
 
-  h1, h2, h3, h4, h5 {
-    font-family: ${({ theme }) => theme.fonts.heading};
-  }
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:${({ theme }) => theme.fonts.body};
+
+background:${({ theme }) => theme.colors.background};
+
+color:${({ theme }) => theme.colors.text};
+
+overflow-x:hidden;
+
+-webkit-font-smoothing:antialiased;
+
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+button{
+font-family:inherit;
+cursor:pointer;
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+section{
+
+padding:120px 10%;
+
+}
+
+::-webkit-scrollbar{
+
+width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:${({ theme }) => theme.colors.primary};
+
+border-radius:10px;
+
+}
+
 `;
 
 export default GlobalStyles;

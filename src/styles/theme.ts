@@ -1,25 +1,36 @@
-// src/styles/theme.ts
-
 export const theme = {
   colors: {
-    primary: "#4c4747ff",
-    secondary: "#AEA5A6",
-    dark: "#0C0C0C",
-    light: "#F9F9FB",
-    white: "#FFFFFF",
-    gray: "#D8D8D8",
-    textPrimary: "#222222",
-    textSecondary: "#555555",
+    background: "#09090B",
+    surface: "#18181B",
+    card: "#20232A",
+
+    primary: "#7C3AED",
+    secondary: "#38BDF8",
+
+    text: "#FFFFFF",
+    textSecondary: "#94A3B8",
+
+    border: "#2E2E38",
+
+    success: "#22C55E"
   },
+
   fonts: {
     heading: "'Poppins', sans-serif",
-    body: "'Inter', sans-serif",
+    body: "'Inter', sans-serif"
   },
+
   shadows: {
-    card: "0 4px 15px rgba(0, 0, 0, 0.1)",
+    card: "0 15px 40px rgba(0,0,0,.35)"
   },
-  borderRadius: {
-    small: "0.5rem",
-    medium: "1rem",
+
+  radius: {
+    lg: "24px",
+    md: "16px",
+    sm: "10px"
   },
+
+  transition: "all .35s ease"
 };
+
+export type AppTheme = typeof theme;

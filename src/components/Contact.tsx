@@ -1,94 +1,175 @@
-import React, { useRef } from "react";
-import emailjs from "emailjs-com";
+import React from "react";
 import styled from "styled-components";
+import {
+  FaEnvelope,
+  FaPhoneAlt,
+  FaMapMarkerAlt,
+  FaGithub,
+  FaLinkedin,
+  FaFileDownload,
+} from "react-icons/fa";
 
-const ContactSection = styled.section`
-  padding: 50px;
-  background: #f5f5f5;
-  text-align: center;
+const Section = styled.section`
+  padding: 100px 8%;
+  background: ${({ theme }) => theme.colors.surface};
 `;
 
-const ContactTitle = styled.h2`
-  font-size: 2rem;
+const Title = styled.h2`
+  text-align: center;
+  font-size: 42px;
   margin-bottom: 20px;
 `;
 
-const ContactForm = styled.form`
-  max-width: 500px;
-  margin: auto;
+const Subtitle = styled.p`
+  text-align: center;
+  max-width: 700px;
+  margin: auto auto 60px;
+  color: ${({ theme }) => theme.colors.textSecondary};
+  line-height: 1.8;
+`;
+
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const Card = styled.div`
+  background: ${({ theme }) => theme.colors.card};
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: 20px;
+  padding: 35px;
+`;
+
+const Info = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+  font-size: 17px;
+`;
+
+const Form = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 `;
 
 const Input = styled.input`
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  background: transparent;
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 const TextArea = styled.textarea`
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  background: transparent;
+  color: ${({ theme }) => theme.colors.text};
+  resize: none;
 `;
 
-const SubmitButton = styled.button`
-  background-color: ${({ theme }) => theme.colors.primary}
-  color: white;
+const Button = styled.button`
+  padding: 15px;
   border: none;
-  padding: 12px;
-  border-radius: 8px;
+  border-radius: 12px;
+  background: ${({ theme }) => theme.colors.primary};
+  color: white;
+  font-weight: 600;
   cursor: pointer;
-  font-size: 1rem;
+
   &:hover {
-    background-color: ${({ theme }) => theme.colors.primary}
+    opacity: 0.9;
+  }
+`;
+
+const Socials = styled.div`
+  display: flex;
+  gap: 18px;
+  margin-top: 30px;
+`;
+
+const SocialLink = styled.a`
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: ${({ theme }) => theme.colors.primary};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  transition: 0.3s;
+
+  &:hover {
+    transform: translateY(-5px);
   }
 `;
 
 const Contact = () => {
-  const form = useRef<HTMLFormElement>(null);
-
-  const sendEmail = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!form.current) return;
-
-    emailjs
-      .sendForm(
-        "YOUR_SERVICE_ID", // from EmailJS
-        "YOUR_TEMPLATE_ID", // from EmailJS
-        form.current,
-        "YOUR_PUBLIC_KEY" // from EmailJS
-      )
-      .then(
-        () => {
-          alert("✅ Message sent successfully!");
-          form.current?.reset();
-        },
-        (error) => {
-          alert("❌ Failed to send message. Try again later.");
-          console.error(error);
-        }
-      );
-  };
-
   return (
-    <ContactSection id="contact">
-      <ContactTitle>Contact Me</ContactTitle>
-      <ContactForm ref={form} onSubmit={sendEmail}>
-        <Input type="text" name="user_name" placeholder="Your Name" required />
-        <Input
-          type="email"
-          name="user_email"
-          placeholder="Your Email"
-          required
-        />
-        <TextArea name="message" rows={5} placeholder="Your Message" required />
-        <SubmitButton type="submit">Send Message</SubmitButton>
-      </ContactForm>
-    </ContactSection>
+    <Section id="contact">
+      <Title>Let&aposs Build Something Great</Title>
+
+      <Subtitle>
+        I&aposm currently open to Full Stack Engineer opportunities, freelance
+        projects and exciting collaborations.
+      </Subtitle>
+
+      <Container>
+        <Card>
+          <Info>
+            <FaEnvelope />
+            pn.ranjith292@gmail.com
+          </Info>
+
+          <Info>
+            <FaPhoneAlt />
+            +91 91773 88913
+          </Info>
+
+          <Info>
+            <FaMapMarkerAlt />
+            Bangalore, India
+          </Info>
+
+          <Socials>
+            <SocialLink href="https://github.com/ranjithpn292" target="_blank">
+              <FaGithub />
+            </SocialLink>
+
+            <SocialLink
+              href="https://linkedin.com/in/ranjith-p-n-1761181b4"
+              target="_blank"
+            >
+              <FaLinkedin />
+            </SocialLink>
+
+            <SocialLink href="YOUR_RESUME_LINK" target="_blank">
+              <FaFileDownload />
+            </SocialLink>
+          </Socials>
+        </Card>
+
+        <Card>
+          <Form>
+            <Input placeholder="Your Name" />
+
+            <Input placeholder="Your Email" />
+
+            <TextArea rows={6} placeholder="Your Message" />
+
+            <Button>Send Message</Button>
+          </Form>
+        </Card>
+      </Container>
+    </Section>
   );
 };
 
