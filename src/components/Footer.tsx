@@ -1,6 +1,22 @@
 import React from "react";
 import styled from "styled-components";
-import { FaGithub, FaLinkedin, FaEnvelope, FaArrowUp } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaArrowUp } from "react-icons/fa";
+
+const EnvelopeIcon = () => (
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M4 4h16v16H4z" />
+    <path d="M4 7l8 6 8-6" />
+  </svg>
+);
 
 const FooterSection = styled.footer`
   background: ${({ theme }) => theme.colors.background};
@@ -121,7 +137,7 @@ const Footer = () => {
           </Social>
 
           <Social href="mailto:pn.ranjith292@gmail.com">
-            {React.createElement(FaEnvelope)}
+            <EnvelopeIcon />
           </Social>
         </Socials>
 
