@@ -1,6 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import { FaBriefcase, FaCheckCircle } from "react-icons/fa";
+import { FaCheckCircle } from "react-icons/fa";
+
+const BriefcaseIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 512 512"
+    fill="currentColor"
+  >
+    <path d="M184 48c-26.5 0-48 21.5-48 48v16H96c-35.3 0-64 28.7-64 64v32h512v-32c0-35.3-28.7-64-64-64h-40V96c0-26.5-21.5-48-48-48H184zm208 64H120V96c0-8.8 7.2-16 16-16h240c8.8 0 16 7.2 16 16v16zM32 224v176c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V224H32zm176 64h96c8.8 0 16 7.2 16 16s-7.2 16-16 16h-96c-8.8 0-16-7.2-16-16s7.2-16 16-16z" />
+  </svg>
+);
 
 const Section = styled.section`
   padding: 100px 8%;
@@ -170,7 +180,7 @@ const Experience = () => {
         {experiences.map((exp) => (
           <Card key={`${exp.company}-${exp.role}`}>
             <Company>
-              <FaBriefcase />
+              <BriefcaseIcon />
               {exp.company}
             </Company>
 
