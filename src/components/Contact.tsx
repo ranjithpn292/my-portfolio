@@ -125,7 +125,7 @@ const Contact = () => {
       <Container>
         <Card>
           <Info>
-            <FaEnvelope />
+            {React.createElement(FaEnvelope)}
             pn.ranjith292@gmail.com
           </Info>
 

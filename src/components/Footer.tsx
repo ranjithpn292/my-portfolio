@@ -120,8 +120,8 @@ const Footer = () => {
             <FaLinkedin />
           </Social>
 
-          <Social href="mailto:YOUR_EMAIL@gmail.com">
-            <FaEnvelope />
+          <Social href="mailto:pn.ranjith292@gmail.com">
+            {React.createElement(FaEnvelope)}
           </Social>
         </Socials>
 
