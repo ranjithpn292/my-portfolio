@@ -102,6 +102,12 @@ const Item = styled.div`
   margin-bottom: 15px;
 `;
 
+const CheckIcon = FaCheckCircle as React.ComponentType<{
+  size?: number;
+  color?: string;
+  style?: React.CSSProperties;
+}>;
+
 const experiences = [
   {
     company: "Synchrony International Services Pvt Ltd",
@@ -183,10 +189,13 @@ const Experience = () => {
             <Achievements>
               {exp.achievements.map((achievement) => (
                 <Item key={achievement}>
-                  <FaCheckCircle
+                  <CheckIcon
                     size={18}
                     color="#22c55e"
-                    style={{ marginTop: 2, flexShrink: 0 }}
+                    style={{
+                      minWidth: "18px",
+                      marginTop: "3px",
+                    }}
                   />
                   <span>{achievement}</span>
                 </Item>

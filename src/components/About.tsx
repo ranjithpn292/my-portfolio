@@ -81,6 +81,12 @@ const Highlight = styled.div`
   font-weight: 600;
 `;
 
+const CheckIcon = FaCheckCircle as React.ComponentType<{
+  size?: number;
+  color?: string;
+  style?: React.CSSProperties;
+}>;
+
 const About = () => {
   return (
     <Section id="about">
@@ -110,11 +116,12 @@ const About = () => {
           <Highlights>
             <Highlight>
               <Item>
-                <FaCheckCircle
+                <CheckIcon
+                  size={18}
+                  color="#22c55e"
                   style={{
-                    color: "#22c55e",
                     minWidth: "18px",
-                    fontSize: "18px",
+                    marginTop: "3px",
                   }}
                 />
                 Built React Micro Frontends
@@ -124,11 +131,12 @@ const About = () => {
 
             <Highlight>
               <Item>
-                <FaCheckCircle
+                <CheckIcon
+                  size={18}
+                  color="#22c55e"
                   style={{
-                    color: "#22c55e",
                     minWidth: "18px",
-                    fontSize: "18px",
+                    marginTop: "3px",
                   }}
                 />
                 Built React Micro Frontends
@@ -138,11 +146,12 @@ const About = () => {
 
             <Highlight>
               <Item>
-                <FaCheckCircle
+                <CheckIcon
+                  size={18}
+                  color="#22c55e"
                   style={{
-                    color: "#22c55e",
                     minWidth: "18px",
-                    fontSize: "18px",
+                    marginTop: "3px",
                   }}
                 />
                 Built React Micro Frontends
@@ -152,11 +161,12 @@ const About = () => {
 
             <Highlight>
               <Item>
-                <FaCheckCircle
+                <CheckIcon
+                  size={18}
+                  color="#22c55e"
                   style={{
-                    color: "#22c55e",
                     minWidth: "18px",
-                    fontSize: "18px",
+                    marginTop: "3px",
                   }}
                 />
                 Built React Micro Frontends
@@ -166,11 +176,12 @@ const About = () => {
 
             <Highlight>
               <Item>
-                <FaCheckCircle
+                <CheckIcon
+                  size={18}
+                  color="#22c55e"
                   style={{
-                    color: "#22c55e",
                     minWidth: "18px",
-                    fontSize: "18px",
+                    marginTop: "3px",
                   }}
                 />
                 Built React Micro Frontends
@@ -180,11 +191,12 @@ const About = () => {
 
             <Highlight>
               <Item>
-                <FaCheckCircle
+                <CheckIcon
+                  size={18}
+                  color="#22c55e"
                   style={{
-                    color: "#22c55e",
                     minWidth: "18px",
-                    fontSize: "18px",
+                    marginTop: "3px",
                   }}
                 />
                 Built React Micro Frontends
@@ -194,11 +206,12 @@ const About = () => {
 
             <Highlight>
               <Item>
-                <FaCheckCircle
+                <CheckIcon
+                  size={18}
+                  color="#22c55e"
                   style={{
-                    color: "#22c55e",
                     minWidth: "18px",
-                    fontSize: "18px",
+                    marginTop: "3px",
                   }}
                 />
                 Built React Micro Frontends
@@ -208,11 +221,12 @@ const About = () => {
 
             <Highlight>
               <Item>
-                <FaCheckCircle
+                <CheckIcon
+                  size={18}
+                  color="#22c55e"
                   style={{
-                    color: "#22c55e",
                     minWidth: "18px",
-                    fontSize: "18px",
+                    marginTop: "3px",
                   }}
                 />
                 Built React Micro Frontends
