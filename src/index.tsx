@@ -1,5 +1,5 @@
 // src/index.tsx
-import React from "react";
+import * as React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { ThemeProvider } from "styled-components";
@@ -15,7 +15,7 @@ if (rootElement) {
         <GlobalStyles />
         <App />
       </ThemeProvider>
-    </React.StrictMode>
+    </React.StrictMode>,
   );
 } else {
   console.error("Root element not found.");
