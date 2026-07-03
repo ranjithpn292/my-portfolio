@@ -35,7 +35,10 @@ const Navbar = () => {
 
         <NavItem href="#contact">Contact</NavItem>
 
-        <ResumeButton href="/resume.pdf" target="_blank">
+        <ResumeButton
+          href="https://drive.google.com/file/d/1T3POsbPeucPHNzZ9he1ymmkVz7myeVHG/view?usp=drive_link"
+          target="_blank"
+        >
           Resume
         </ResumeButton>
       </NavLinks>

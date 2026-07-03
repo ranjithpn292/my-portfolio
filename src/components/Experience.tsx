@@ -147,7 +147,7 @@ const experiences = [
   {
     company: "DBS Technology Services India Pvt. Ltd",
     role: "Java Full Stack Engineer",
-    duration: "Jul 2022 – Present",
+    duration: "Jul 2022 – Feb 2026",
     description:
       "Working as a Java Full Stack Engineer developing enterprise applications using React, Java 17, Spring Boot and Microservices across banking solutions.",
     tech: [
