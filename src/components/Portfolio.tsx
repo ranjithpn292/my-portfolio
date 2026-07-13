@@ -298,13 +298,6 @@ function SectionLabel({ index, title }: SectionLabelProps) {
 export default function Portfolio() {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const today = new Date();
-  const dateline = today
-    .toLocaleDateString("en-US", {
-      month: "long",
-      day: "numeric",
-      year: "numeric",
-    })
-    .toUpperCase();
 
   return (
     <div className="site">

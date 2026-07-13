@@ -1,13 +1,4 @@
 import * as React from "react";
-import Navbar from "./components/Navbar/Navbar";
-import Hero from "./components/Hero/Hero";
-import Stats from "./components/Stats/Stats";
-import About from "./components/About";
-import Experience from "./components/Experience";
-import Skills from "./components/Skills";
-import Projects from "./components/Projects";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
 import Portfolio from "./components/Portfolio";
 
 function App() {
