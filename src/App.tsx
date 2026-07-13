@@ -8,11 +8,13 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import Portfolio from "./components/Portfolio";
 
 function App() {
   return (
     <>
-      <Navbar />
+      <Portfolio />
+      {/* <Navbar />
       <Hero />
       <Stats />
       <About />
@@ -20,7 +22,7 @@ function App() {
       <Skills />
       <Projects />
       <Contact />
-      <Footer />
+      <Footer /> */}
     </>
   );
 }
